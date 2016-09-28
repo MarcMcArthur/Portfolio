@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" rel="stylesheet">
+
+    <link 
+      rel="stylesheet" 
+      type="text/css" 
+      href="prism-atom-dark.css"
+      media="screen"
+    />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="prism.js"></script>
+    <script type="text/javascript" src="prism.ruby.js"></script>
+
+    <script>
+      $(function() {
+        // This will select everything with the class smoothScroll
+        // This should prevent problems with carousel, scrollspy, etc...
+        $('.smoothScroll').click(function() {
+          if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+            if (target.length) {
+              $('html,body').animate({
+                scrollTop: target.offset().top
+              }, 2000); // The number here represents the speed of the scroll in milliseconds
+              return false;
+            }
+          }
+        });
+      });
+    </script>
+  
+    <title>Marc McArthur</title>
+    <meta name="description" content="Marc McArthur is a recent graduate from the Firehose Project- an Full-Stack online coding bootcamp. He has experience with Ruby, Rails, JavaScript, and building web applications.">
+  </head>
+
+  <body>
+    <div class="about-container">
+      <ul>
+        <li><a class="smoothScroll" href="#about-me">ABOUT</a></li>
+        <li><a class="smoothScroll" href="#code-samples">CODE SAMPLES</a></li>
+        <li><a class="smoothScroll" href="#web-apps">WEB APPS</a></li>
+        <li><a class="smoothScroll" href="#skills-and-tools" >SKILLS &amp; TOOLS</a></li>
+        <li class="hire-me"><a class="smoothScroll" href="#hire-me" >HIRE ME</a></li>
+      </ul>
+
+      <div id="about-me" class="about">
+        <img src="assets/me.png" class="me" />
+        <h1>Marc McArthur</h1>
+
+        <h2>WEB DEVELOPER</h2>
+
+        <hr class="grey" />
+
+        <p class="bio">
+          With several years experience in the international education field, a relocation back to the UK combined with my passion for problem solving and interest in the startup world led me to take a Customer Care role in a leading recipe delivery startup. After exposure to various aspects of the company ranging from marketing to product and tech, I decided to pursue my love of solving problems and being constantly faced with challenges by immersing myself in an online Web Developer coding bootcamp. I am now seeking an exciting and challenging Junior Web Developer role in an ambitious tech department.
+        </p>
+      </div>
+    </div>
+
+    <h3 id="code-samples">Code Samples</h3>
+    <hr class="line" />
+
+    <div class="box">
+      <h4>Temperature Conversion</h4>
+      <p>
+        This ruby program will prompt the user for a temperature in degrees Celsius and let the user know what the corresponding temperature is in Fahrenheit.
+      </p>
+    </div>
+
+    <div class="box">
+<pre><code class="language-ruby">
+def cel_to_fahr(cel)
+  fahr = cel * (9.0 / 5.0) + 32
+  return fahr
+  #cel * (9.0 / 5.0) + 32
+end
+
+puts &quot;Please, enter the temperature in degrees celsius:&quot;
+temp = gets.to_f
+puts &quot;The temperature is #{cel_to_fahr(temp)} degrees fahrenheit.&quot;
+</code></pre>
+    </div>
+
+    <br class="clear" />
+
+    <div class="box">
+<pre><code class="language-ruby">
+puts &quot;Enter a number:&quot;
+
+number = gets.chomp.to_f
+
+def modulo_number(x)
+  m = (x % 10)
+  tens_digit = (x % 100)
+  
+  #if tens_digit == 11 || tens_digit == 12 || tens_digit == 13
+  if (11..13).include?tens_digit
+      return &quot;The ordinal number is the #{x}th number.&quot;
+  elsif m == 1 
+      return &quot;The ordinal number is the #{x}st number&quot;
+  elsif m == 2 
+      return &quot;The ordinal number is the #{x}nd number&quot;
+  elsif m == 3
+      return &quot;The ordinal number is the #{x}rd number&quot;
+  else
+      return &quot;The ordinal number is the #{x}th number&quot;
+  end
+end
+
+puts &quot;#{modulo_number(number.to_i)}&quot;
+</code></pre>
+    </div>
+
+    <div class="box">
+      <h4>Ordinal Challenge</h4>
+      <p>
+        This ruby program will convert a plain number to the ordinal of the number. So for example, if the user enters 2, it will display 2nd, if the user enters 3, it will display 3rd, etc.
+      </p>
+    </div>
+
+    <br class="clear" />
+
+    <div class="box">
+      <h4>Foobar Challenge</h4>
+      <p>
+        This ruby program is an adaptation of a classic technical interview problem which displays sequences of the Foobar pattern.
+      </p>
+    </div>
+
+    <div class="box">
+<pre><code class="language-ruby">
+array = []
+
+while count != items + 1
+  if count % 3 == 0 and count % 5 == 0
+    array = array.push(&quot;foobar&quot;)
+    elsif count % 3 == 0
+      array = array.push(&quot;foo&quot;)
+    elsif count % 5 == 0
+      array = array.push(&quot;bar&quot;)
+    else
+      array = array.push(count)
+  end
+  count = count + 1
+end
+
+puts &quot;#{array}&quot;
+</code></pre>
+    </div>
+
+    <br class="clear" />
+
+    <h3 id="web-apps">Web Apps</h3>
+    <hr class="line" />
+
+    <div class="box">
+      <h4>Quote Generator</h4>
+      <img src="assets/mcsplurty.png" class="full-width" />
+      <p>
+        A database-poered quote generator with a mobile-first design, using the Ruby on Rails framework, HTML, and CSS. Uses Git and GitHub for version control, and launched on Heroku.
+      </p>
+    </div>
+
+    <div class="box">
+      <h4>Yelp Clone</h4>
+      <img src="assets/mcnomster.png" class="full-width" />
+      <p>
+        A Yelp clone that integrates with the Google Maps API and includes features like user comments, star ratings, image uploading, and user authentication.
+      </p>
+    </div>
+    <br class="clear" />
+
+    <div class="box">
+      <h4>Two-sided Market Place</h4>
+      <img src="assets/mcflixter.png" class="full-width" />
+      <p>
+        A two-sided, video-streaming marketplace platform that features credit card payment capabilities, user role management, complex user interfaces, and advanced databse relationships.
+      </p>
+    </div>
+    <div class="box">
+      <h4>Test Driven Development</h4>
+      <img src="assets/grammable.png" class="full-width" />
+      <p>
+        An instagram clone that was built using industry-standard, test-driven development following numerous red/green/refactor cycles.
+      </p>
+    </div>
+    <br class="clear" />
+    <div class="box">
+      <h4>Single Page Todo Application</h4>
+      <img src="assets/mactodo.png" class="full-width" />
+      <p>
+        This single-page to-do application features a fluid user interface that- by using Javascript- allows users to rapidly add dynamic content.
+      </p>
+    </div>
+    <div class="box">
+      <h4>Team Divergence Chess Project</h4>
+      <img src="assets/chess.png" class="full-width" />
+      <p>
+        Worked on an Agile software development team building a chess application. Under the guidance of a senior software engineer, we had weekly Agile team meetings for code reviews, sprint planning, and feature assignments.
+      </p>
+    </div>
+    <br class="clear" />
+
+    <h3 id="skills-and-tools">Skills &amp; Tools</h3>
+    <hr class="line" />
+    <p class="skills-and-tools">
+      Marc has developed a good level of proficiency in the following programing languages and comfort with the following tools.
+    </p>
+
+    <img src="assets/github.png" class="tools" />
+    <img src="assets/rubocop.png" class="tools" />
+    <img src="assets/trello.png" class="tools" />
+    <img src="assets/slack.png" class="tools" />
+    <img src="assets/travisci.png" class="tools" />
+      
+      
+    <br class="clear" />
+    <div class="skills">  
+      <img src="assets/skills.png" />
+    </div>
+
+    <div class="contact-me" id="hire-me">
+      <h3 class="contact-headline">Contact</h3>
+      <hr class="line" />
+      <p class="contact-info">
+        Currently entertaining new opportunities.
+        Please get in touch via email:
+      </p>
+
+      <p>
+        <a href="mailto:mcarthur.marcrichard@gmail.com" class="contact-link">
+          mcarthur.marcrichard@gmail.com
+        </a>
+      </p>
+
+    </div>
+  </body>
+
+</html>
